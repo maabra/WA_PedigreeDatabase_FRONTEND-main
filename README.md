@@ -1,24 +1,13 @@
 # wa_pedigreedatabase_frontend
 
-## Project setup
-```
-npm install
-```
+Fokus projekta bi bio vođenje liste rodovnica/pedigrea čistokrvne rase psa te usporedba pasa da nema inbreedinga (incesta po obiteljskom  stablu).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Vodi se posebna lista pasa sa dobivenim CACIB-ima i CAC-ima kategoriziranih po jačini postignuća i broju postignuća.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Na "profilu" psa stoji ime psa, spol, datum štenjenja te sama rodovnica tj. obiteljsko stablo.
 
-### Lints and fixes files
-```
-npm run lint
-```
+Postoji obrazac koji potencijalni korisnici popunjuju da postave svog psa na stranicu.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+Ovo je frontend projekta.
