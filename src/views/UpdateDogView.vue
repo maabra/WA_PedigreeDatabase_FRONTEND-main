@@ -1,12 +1,12 @@
 <template>
   <div class="row">
     <div class="row">
-      <h2 class="text-center mb-3">Ovdje unesite podatke o psu</h2>
+      <h2 class="text-center mb-3">Ovdje uredite podatke o psu {{dogs.dogName}}</h2>
     </div>
     <div class="row">
       <center>
         <div class="col-5">
-          <form @submit.prevent="addDog" class="mb-5">
+          <form @submit.prevent="updateDog" class="mb-5">
             <div class="form-group">
               <label for="dogNameField">Ime psa: </label>
               <input
@@ -167,21 +167,20 @@
             >
               Pošalji
             </button>
-            <v-alert type="success"></v-alert>
           </form>
         </div>
       </center>
     </div>
   </div>
 </template>
-
-<script>
-import { dogAdd } from "@/services";
-
+  
+  <script>
+import { dogUpdate } from "@/services";
 export default {
-  name: "AddDog",
+  name: "UpdateDog",
   data() {
     return {
+      dogs: [],
       dogName: "",
       dogSex: "",
       dogBirth: "",
@@ -195,12 +194,20 @@ export default {
       dogGrandmaFather: "",
       dogGrandpaFather: "",
       dogPedNr: "",
+      id: this._id
     };
   },
+
+  created() {
+    this.pas_id = localStorage.getItem("dogId");
+    console.log("ovo je " + this.pas_id);
+  },
   methods: {
-    async addDog() {
+
+    async updateDog() {
       try {
-        let adddog = await dogAdd.addDog(
+        let updatedog = await dogUpdate.updateDog(
+          this.pas_id,
           this.dogName,
           this.dogSex,
           this.dogBirth,
@@ -215,18 +222,18 @@ export default {
           this.dogGrandpaFather,
           this.dogPedNr
         );
-        console.log(adddog);
+        console.log(updatedog);
         alert(`Podatci o psu imena <${this.dogName}> su upisani!`);
         this.$router.push({ name: "home" });
       } catch (error) {
         console.log(error);
       }
     },
-  },
+    },
 };
 </script>
-
-<style lang="scss">
+  
+  <style lang="scss">
 div {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

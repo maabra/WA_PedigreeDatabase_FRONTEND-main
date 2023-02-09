@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
-
+//import DogDetails from '../components/DogDetails.vue';
 Vue.use(VueRouter);
 
 const routes = [
@@ -17,10 +17,11 @@ const routes = [
       import(/* webpackChunkName: "Compare" */ "../views/CompareView.vue"),
   },
   {
-    path: "/dog",
+    path: "/dog/:_id",
     name: "dog",
     component: () =>
       import(/* webpackChunkName: "Dog" */ "../views/DogView.vue"),
+      props: true,
   },
   {
     path: "/list",
@@ -29,10 +30,16 @@ const routes = [
       import(/* webpackChunkName: "List" */ "../views/ListView.vue"),
   },
   {
-    path: "/adddog",
-    name: "adddog",
+    path: "/addDog",
+    name: "addDog",
     component: () =>
       import(/* webpackChunkName: "AddDog" */ "../views/AddDogView.vue"),
+  },
+  {
+    path: "/updateDog/:_id",
+    name: "updateDog",
+    component: () =>
+      import(/* webpackChunkName: "UpdateDog" */ "../views/UpdateDogView.vue"),
   },
 ];
 

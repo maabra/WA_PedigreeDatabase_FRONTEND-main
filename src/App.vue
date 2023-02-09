@@ -1,40 +1,46 @@
+
 <template>
-  <div id="app">
-    Pedigree
-    <img src="./assets/home.png" alt="Vue logo"
-    contain
-    height="100px"
-    width="127px"
-    >
-    Database
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/adddog">Add Dog</router-link> -
-      <router-link to="/compare">Compare</router-link> -
-      <router-link to="/dog">Dog</router-link> -
-      <router-link to="/list">List</router-link>
-      
+  <div>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <router-link to="/">Naslovnica</router-link>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <router-link to="/compare">Usporedba</router-link>
+          </div>
+          <div class="navbar-nav">
+            <router-link to="/list">Lista pasa</router-link>
+          </div>
+        </div>
+        <div class="navbar-nav">
+          <router-link to="/adddog">Dodaj psa</router-link>
+        </div>
+      </div>
     </nav>
     <router-view />
   </div>
 </template>
 
 <style lang="scss">
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
-body {background-color: rgb(0, 0, 0);}
+#app {
+  font-family: "Ubuntu", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #c5c5c5;
+}
+body {
+  background-color: rgb(36, 0, 0);
+}
 nav {
-  padding: 5px;
+  padding: 10px;
   a {
     font-weight: bold;
-    color: #df7d0d5b;
+    color: #0000005b;
     &.router-link-exact-active {
-      color: #fff783;
+      color: #5f5f5f;
     }
   }
 }
